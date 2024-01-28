@@ -11,6 +11,7 @@ struct OrdenTrabajo
 int main(void)
 {
     int opcion;
+    int mantenimiento;
     FILE *archivo;
     archivo = fopen("ordenes_trabajo.txt", "a");
     struct OrdenTrabajo orden;
@@ -49,11 +50,47 @@ int main(void)
 
             if (orden.trabajo == 1)
             {
-                orden.costo += 30.00;
+                printf("Que mantenimiento se va a realizar?\n");
+                printf("1. Mantenimiento de HARDWARE.\n");
+                printf("2. Mantenimiento de SOFTWARE.\n");
+                printf("3. Formateo del dispositivo.\n");
+                scanf("%d", &mantenimiento);
+                if (mantenimiento == 1)
+                {
+                    orden.costo += 40;
+                }
+                else if (mantenimiento == 2)
+                {
+                    orden.costo += 50;
+                }
+                else if (mantenimiento == 3)
+                {
+                    orden.costo += 8;
+                }
+                printf("Su orden de trabajo ha sido guardada!\n");
+                printf("\n");
             }
             else
             {
-                orden.costo += 15.00;
+                printf("Que mantenimiento se va a realizar?\n");
+                printf("1. Mantenimiento de HARDWARE.\n");
+                printf("2. Mantenimiento de SOFTWARE.\n");
+                printf("3. Formateo del dispositivo.\n");
+                scanf("%d", &mantenimiento);
+                if (mantenimiento == 1)
+                {
+                    orden.costo += 35;
+                }
+                else if (mantenimiento == 2)
+                {
+                    orden.costo += 45;
+                }
+                else if (mantenimiento == 3)
+                {
+                    orden.costo += 10;
+                }
+                printf("Su orden de trabajo ha sido guardada!\n");
+                printf("\n");
             }
             break;
         case 3:
