@@ -8,23 +8,24 @@ struct OrdenTrabajo
     float costo;
 };
 
-/* Se creo una estructura que almacene todos los datos que se van a imprimir proximamente en un archivo plano*/
-
 int main(void)
 {
     int opcion;
     FILE *archivo;
     archivo = fopen("ordenes_trabajo.txt", "a");
+    
     do
     {
         printf("Ingrese el numero de la accion que desee realizar. (Ejemplo = 1 )\n");
-        printf("1.Ingresar su cuenta. \n");
+        printf("1. Ingresar su cuenta. \n");
         printf("2. Realizar una orden de trabajo. \n");
         printf("3. Mostrar los datos de su pedido. \n");
         printf("4. Salir. \n");
         scanf("%d", &opcion);
         printf("\n");
+        
         struct OrdenTrabajo orden;
+        
         switch (opcion)
         {
         case 1:
@@ -37,7 +38,6 @@ int main(void)
             orden.costo = 0;
             do
             {
-
                 printf("Escoja el dispositivo al cual desea que le realicemos mantenimiento.\n");
                 printf("1. Computadora.\n");
                 printf("2. Celular. \n");
@@ -47,25 +47,28 @@ int main(void)
                     printf("Por favor, ingrese una opcion valida (1 o 2).\n");
                 }
             } while (orden.trabajo < 1 || orden.trabajo > 2);
+            
             if (orden.trabajo == 1)
             {
                 orden.costo += 30.00;
             }
             else
             {
-
                 orden.costo += 15.00;
             }
-            break;
+            break;  // Agregar el break para salir del switch después de realizar la elección del tipo de trabajo.
         case 3:
+            // Mostrar información al usuario
+            printf("Datos del pedido:\n");
+            printf("Nombre: %s %s\n", orden.nombreCliente, orden.apellidoCliente);
+            printf("Costo total: $%.2f\n", orden.costo);
 
+            // Escribir en el archivo plano
             fprintf(archivo, "%s %s %.2f \n", orden.nombreCliente, orden.apellidoCliente, orden.costo);
-            
             break;
         case 4:
-
             printf("Hasta pronto!\n");
-
+            break;
         default:
             break;
         }
