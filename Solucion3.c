@@ -19,6 +19,7 @@ int main(void)
 
     do
     {
+        printf("Bienvenido a REGIMATH!\n");
         printf("Ingrese el numero de la accion que desee realizar. (Ejemplo = 1 )\n");
         printf("1. Ingresar su cuenta. \n");
         printf("2. Realizar una orden de trabajo. \n");
