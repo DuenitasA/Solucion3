@@ -16,10 +16,10 @@ int main(void)
     archivo = fopen("ordenes_trabajo.txt", "a");
     struct OrdenTrabajo orden;
     orden.costo = 0;
+    printf("Bienvenido a REGIMATH!\n");
 
     do
     {
-        printf("Bienvenido a REGIMATH!\n");
         printf("Ingrese el numero de la accion que desee realizar. (Ejemplo = 1 )\n");
         printf("1. Ingresar su cuenta. \n");
         printf("2. Realizar una orden de trabajo. \n");
